@@ -3,139 +3,45 @@
 
 <head>
   <title>Player Registration</title>
-
-  <style>
-    /* Form styles */
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    /* Label styles */
-    label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-
-    /* Input styles */
-    input,
-    select {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    /* Button styles */
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-  </style>
-
+  
+  <link rel="stylesheet" href="Styles.css">
 </head>
 
 <body>
 
-  <form>
+  <form  id="registrationForm">
 
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" required minlength="3">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="first_name" required minlength="3" uniqueid="firstName">
 
     <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" required minlength="3">
-   
-    <!-- Add the Email field -->
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="text" id="lastName" name="last_name" required minlength="3" uniqueid="lastName">
 
-
-    <label for="birth_date">Date of Birth:</label>
-    <input type="date" id="birth_date" name="birth_date" required>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="birthDate" required uniqueid="dateOfBirth">
 
     <label for="age">Age:</label>
-    <input type="number" id="age" name="age" disabled>
+    <input type="number" id="age" name="age" disabled uniqueid="age">
 
     <label for="gender">Gender:</label>
-    <select id="gender" name="gender" required>
+    <select id="gender" name="gender" required uniqueid="gender">
       <option value="">Select</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
-
-    
+    <br>
+    <label for="email">Email:</label>
+		<input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address"><br>
+    <br>
+  
   </form>
 
-  <button id="register_btn">Register</button>
+  <button id="registerBtn">Register</button>
 
-  <button id="start_btn" disabled>Start</button>
-  <button id="end_btn" disabled>End</button>
+  <button id="startBtn" disabled>Start</button>
+  <button id="endBtn" disabled>End</button>
 
   <!-- JavaScript code -->
-  <script>
-    // Get references to form elements and buttons
-    const firstNameInput = document.getElementById("first_name");
-    const lastNameInput = document.getElementById("last_name");
-    const birthDateInput = document.getElementById("birth_date");
-    const ageInput = document.getElementById("age");
-    const genderSelect = document.getElementById("gender");
-    const emailInput = document.getElementById("email");
-    const registerButton = document.getElementById("register_btn");
-    const startButton = document.getElementById("start_btn");
-    const endButton = document.getElementById("end_btn");
-
-    // Add an event listener to the register button
-    registerButton.addEventListener("click", function () {
-      // Get values from the form
-      const firstName = firstNameInput.value;
-      const lastName = lastNameInput.value;
-      const birthDate = birthDateInput.value;
-      const gender = genderSelect.value;
-      const email = emailInput.value;
-
-      // Perform email validation
-      if (!isValidGmail(email)) {
-        alert("Please enter a valid Gmail email address.");
-        return;
-      }
-
-      // Calculate age based on birth date
-      const today = new Date();
-      const birthDateObj = new Date(birthDate);
-      const age = today.getFullYear() - birthDateObj.getFullYear();
-
-      // Update the age input field
-      ageInput.value = age;
-
-      // Enable the start and end buttons
-      startButton.removeAttribute("disabled");
-      endButton.removeAttribute("disabled");
-    });
-
-    // Function to validate Gmail email address
-    function isValidGmail(email) {
-      const gmailRegex = /@gmail\.com$/;
-      return gmailRegex.test(email);
-    }
-  </script>
+  <script src="Script.js"></script>
 </body>
-
 </html>
