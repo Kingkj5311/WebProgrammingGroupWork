@@ -119,7 +119,10 @@ body.results #svgImgResults{
     height: 90vh;
 }
 /* ========================= Form ================================== */
-/* Form styles */
+.registrationForm{
+   margin-top: 15vh;
+}
+/* Form */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -128,14 +131,14 @@ form {
   border-radius: 5px;
  }
     
-/* Label styles */
+/* Label */
 label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
 }
     
-/* Input styles */
+/* Input */
 input, select {
   padding: 10px;
   border: 1px solid #ccc;
@@ -144,7 +147,7 @@ input, select {
   max-width: 400px;
 }
     
-/* Button styles */
+/* Buttons */
 button {
   padding: 10px 20px;
   background-color: #007bff;
