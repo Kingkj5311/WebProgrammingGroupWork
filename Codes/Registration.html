@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Player Registration</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body class="registration">
+    <!-- Navigation -->
+    <nav class="navBar">
+        <div class="navLinks" id="mainTitle">
+            <a href="Index.html" id="headerTitle">Multiplication Nation</a>
+        </div>
+        <div class="navLinks">
+            <a href="Index.html" id="navHome" class="mainLinks"><img class="svgImg" id="svgImgHome"
+                    src="../Assets/home.svg" alt="">Home</a>
+            <a href="Play.html" id="navPlay" class="mainLinks"><img class="svgImg" id="svgImgPlay"
+                    src="../Assets/play-button-arrowhead.svg" alt="">Play</a>
+            <a href="Results.html" id="navResults" class="mainLinks"><img class="svgImg" id="svgImgResults"
+                    src="../Assets/results.svg" alt="">Results</a>
+        </div>
+        <div class="navLinks" id="accountLinks">
+            <a href="Registration.html" id="navLoginLink">Log in</a>
+            <a href="Registration.html" id="navRegisterLink">Sign up</a>
+        </div>
+    </nav>
+    <!-- Content -->
+    <section class="content">
+        <div class="registrationForm">
+            <form id="registrationForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="first_name" required minlength="3" uniqueid="firstName">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="lastName" name="last_name" required minlength="3" uniqueid="lastName">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="birthDate" required uniqueid="dateOfBirth">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" disabled uniqueid="age">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required uniqueid="gender">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$"
+                    title="Please enter a valid Gmail address"><br>
+                <br>
+                <button type="button" id="registerBtn" onclick="Register()">Register</button>
+                <button type="button" id="startBtn" onclick="PlayGame()" disabled>Start</button>
+                <button type="button" id="checkAnswerBtn" onclick="CheckAnswer()" disabled>Check Answer</button>
+                <button type="button" id="nextBtn" onclick="PlayGame()" disabled>Next</button>
+                <button id="endBtn" disabled>End</button>
+            </form>
+            <div id="playArea" style="display:none;">
+                <p id="equation"></p>
+                <input type="number" id="answer" placeholder="Enter your answer" required>
+                <button type="button" id="acceptBtn" onclick="checkAnswer()">Check Answer</button>
+            </div>
+        </div>
+    </section>
+    <!-- JavaScript code -->
+    <script src="Script.js"></script>
+</body>
+
+</html>
