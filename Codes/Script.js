@@ -91,6 +91,42 @@ function PlayGame() {
 	document.getElementById('nextBtn').disabled = false;
 }
 
+function checkAnswer() {
+    // Get user's answer from the input field
+    const playerAnswer = parseFloat(document.getElementById('answer').value);
+
+    if (isNaN(playerAnswer)) {
+        alert("Invalid input. Please enter a valid number.");
+    } else {
+        // Get num1 and num2 from the equation
+        const equationText = document.getElementById('equation').textContent;
+        const [num1, num2] = equationText.match(/\d+/g).map(Number);
+
+        // Calculate the correct answer
+        const correctAnswer = num1 * num2;
+
+		//Calculate if the player's answer is correct
+		const isCorrect = playerAnswer === correctAnswer;
+
+		//Create an object with game data
+		const gameData = {
+            equation: equationText,
+            response: playerAnswer,
+            isCorrect: isCorrect,
+        };
+		
+		PlayerRegistrationData.push(gameData);
+
+
+		if (isCorrect) {
+            alert("Correct! Well done.");
+        } else {
+            alert(`Incorrect. The correct answer is ${correctAnswer}.`);
+        }
+		document.getElementById('answer').value='';
+    }
+}
+
 function enableInputs() {
 
 	// Clear form fields
