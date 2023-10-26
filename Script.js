@@ -36,6 +36,7 @@ function Register() {
 		alert("Age must be between 8 and 12 inclusive.");
 		return;
 	}
+	document.getElementById('age').value = age;
 
 	// Data collection logic
 	const playerData = {
@@ -51,8 +52,89 @@ function Register() {
 	PlayerRegistrationData.push(playerData);
 
 	// Disable form fields and buttons, enable necessary buttons
-	disableInputs();
+	document.getElementById('firstName').disabled = true;
+	document.getElementById('lastName').disabled = true;
+	document.getElementById('dob').disabled = true;
+	document.getElementById('gender').disabled = true;
+	document.getElementById('age').disabled = true;
+	document.getElementById('email').disabled = true;
+	//disableInputs();
+	document.getElementById('registerBtn').disabled = true;
 	document.getElementById('startBtn').disabled = false;
 	document.getElementById('endBtn').disabled = false;
 }
+
+
+
+function PlayGame() {
+	// Generate random numbers between 1 and 9 (inclusive) and 1 and 5 (inclusive)
+	const num1 = Math.floor(Math.random() * 9) + 1;
+	const num2 = Math.floor(Math.random() * 5) + 1;
+
+	// Calculate the correct answer
+	const correctAnswer = num1 * num2;
+
+			
+	// Select the playArea element by its ID
+	var playArea = document.getElementById("playArea");
+
+	// Enable the playArea element by changing its display property
+	playArea.style.display = "block";
+			
+	// Display the equation in the play area
+	const equationText = `${num1} x ${num2} = ?`;
+	document.getElementById('equation').textContent = equationText;
+
+	// Enable answer input, Accept button, and Next button
+	document.getElementById('answer').disabled = false;
+	document.getElementById('acceptBtn').disabled = false;
+	document.getElementById('nextBtn').disabled = false;
+}
+
+function enableInputs() {
+
+	// Clear form fields
+	document.getElementById('firstName').value = '';
+	document.getElementById('lastName').value = '';
+	document.getElementById('dob').value = '';
+	document.getElementById('gender').value = '';
+	document.getElementById('age').value = '';
+	document.getElementById('email').value = '';
+	document.getElementById('answer').value = '';
+	document.getElementById('equation').textContent = '';
+
+	// Enable input fields and buttons
+	document.getElementById('firstName').disabled = false;
+	document.getElementById('lastName').disabled = false;
+	document.getElementById('dob').disabled = false;
+	document.getElementById('gender').disabled = false;
+	document.getElementById('age').disabled = false;
+	document.getElementById('email').disabled = false;
+	document.getElementById('registerBtn').disabled = false;
+	document.getElementById('startBtn').disabled = false;
+	document.getElementById('checkAnswerBtn').disabled = false;
+	document.getElementById('nextBtn').disabled = false;
+	document.getElementById('answer').disabled = false;
+	document.getElementById('acceptBtn').disabled = false;
+	return;
+}
+
+function disableInputs() {
+	// Disable input fields and buttons
+	document.getElementById('firstName').disabled = true;
+	document.getElementById('lastName').disabled = true;
+	document.getElementById('dob').disabled = true;
+	document.getElementById('gender').disabled = true;
+	document.getElementById('age').disabled = true;
+	document.getElementById('email').disabled = true;
+	document.getElementById('registerBtn').disabled = true;
+	document.getElementById('startBtn').disabled = true;
+	document.getElementById('checkAnswerBtn').disabled = true;
+	document.getElementById('nextBtn').disabled = true;
+	document.getElementById('answer').disabled = true;
+	document.getElementById('acceptBtn').disabled = true;
+	return;
+}
+
+
 
