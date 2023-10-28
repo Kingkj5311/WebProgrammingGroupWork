@@ -1,154 +1,205 @@
 /* Creates pseudo variable type values */
-:root{
+:root {
   /* Color Scheme */
-  --clickMe:#b57bf3;
-  --highlight:#6d41a1;
-  --default:#FFFFFF;
-  --normal:#010101;
-  --faded:#E3E3E3;
-  --unselected:#bcbcbc;
+  --clickMe: #b57bf3;
+  --highlight: #6d41a1;
+  --default: #FFFFFF;
+  --normal: #010101;
+  --faded: #E3E3E3;
+  --unselected: #bcbcbc;
   /* These are related */
-  --highlightFiltered:invert(32%) sepia(14%) saturate(3741%) hue-rotate(232deg) brightness(88%) contrast(91%);
-  --unselectedFiltered:invert(73%) sepia(0%) saturate(0%) hue-rotate(347deg) brightness(107%) contrast(85%);
+  --highlightFiltered: invert(32%) sepia(14%) saturate(3741%) hue-rotate(232deg) brightness(88%) contrast(91%);
+  --unselectedFiltered: invert(73%) sepia(0%) saturate(0%) hue-rotate(347deg) brightness(107%) contrast(85%);
 }
-/* Removing margin and padding. assignment of global font(family) goes here */
-body{
-    background-color: var(--default);
-    margin: 0;
-    padding: 0;
+/* Removing margin and padding. Assignment of global font(family) goes here */
+body {
+  background-color: var(--default);
+  margin: 0;
+  padding: 0;
 }
 /* =========================== Navigation ================================ */
-.navBar{
-    position: fixed;
-    width: 100%;
-    background-color: var(--default);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+.navBar {
+  position: fixed;
+  width: 100%;
+  height: 8vh;
+  background-color: var(--default);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
-.navLinks{
-    padding: 20px;
-} 
-.navLinks a{
-    padding: 10px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    }
+.navLinks {
+  padding: 20px;
+}
+.navLinks a {
+  padding: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
 /* ------- Header ------- */
-#headerTitle{
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--highlight);
-    font-style: italic;
-  }
-/* ------- Account Links ------- */
-#accountLinks{
-    display: inline-flex;
-    justify-content: space-between;
-    width: 175px;
-  }
-#accountLinks a{
-    font-size: 21px;
-    font-weight: bold;
-  }
-#navRegisterLink{
-    background-color: var(--highlight);
-    color: var(--default);
-    border-radius: 10px;
-  }
-#navLoginLink{
-    background-color: var(--faded);
-    border-radius: 10px;
-    color: var(--highlight);
-  }
-/* ------- Main Links ------- */
-body.home #navHome,
-body.play #navPlay,
-body.results #navResults
-{
-    color:var(--highlight);
-    border-bottom: 3px solid var(--highlight);
-}
-body.home #svgImgHome,
-body.play #svgImgPlay,
-body.results #svgImgResults{
-  filter: var(--highlightFiltered);
-}
-.mainLinks{
-    display: inline;
-    width: 200px;
-    color: var(--unselected);
-  }
-.svgImg{
-    width: 25px;
-    height: 25px;
-    margin: 0 10px;
-    cursor: pointer;
-    vertical-align: bottom;
-    filter: var(--unselectedFiltered);
-}
-#navPlay:hover{
-    color: var(--highlight);
-    background-color: var(--hoverColor);
-}
-#navPlay:hover #svgImgPlay{
-    filter: var(--highlightFiltered);
-}
-#navHome:hover{
-    color: var(--highlight);
-    background-color: var(--hoverColor);
-}
-#navHome:hover #svgImgHome{
-    filter: var(--highlightFiltered);
-}
-#navResults:hover{
-    color: var(--highlight);
-    background-color: var(--hoverColor);
-}
-#navResults:hover #svgImgResults{
-    filter: var(--highlightFiltered);
+#headerTitle {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--highlight);
+  font-style: italic;
 }
 /* =========================== Content ================================ */
-.content{
-    background-color: var(--default);
+#mainContent {
+  background-color: var(--default);
+  padding-top: 8vh;
+  width: 100%;
+  height: 92vh;
+  align-self: top;
   /* overflow: hidden; */
-    padding-top: 10vh;
-    width: 100%;
-    height: 90vh;
+  display: grid;
+  grid-template-columns: 35% 40% 25%;
+  grid-template-rows: 100%;
+}
+.secHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1px solid var(--highlight);
+  padding-bottom: 10px;
+}
+.secHeader h1 {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  color: var(--highlight);
+}
+.svgImg {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  cursor: pointer;
+  vertical-align: bottom;
+  filter: var(--highlightFiltered);
+}
+/* =========================== Sections ================================ */
+#registration {
+  border: 1px solid var(--highlight);
+  color: var(--normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#registrationArea {
+  border: 1px solid var(--highlight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+/* ------- Play ------- */
+#playArea {
+  border: 1px solid var(--highlight);
+  color: var(--normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#play {
+  border: 1px solid var(--highlight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+#equation {
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 10px;
+}
+#answer {
+  width: 500px;
+  height: 50px;
+  font-size: 30px;
+  text-align: left;
+  border: 1px solid var(--highlight);
+}
+/* ------- Leaderboard ------- */
+#results {
+  border: 1px solid var(--highlight);
+  color: var(--normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#resultsArea {
+  border: 1px solid var(--highlight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+/* -------- Statistics --------- */
+#statistics {
+  border: 1px solid var(--highlight);
+  color: var(--normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#statisticsArea {
+  border: 1px solid var(--highlight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 90vh;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 /* ========================= Form ================================== */
-.registrationForm{
-   margin-top: 15vh;
+#registrationForm {
+  margin-top: 15vh;
 }
 /* Form */
-form {
-  max-width: 500px;
+#registration form {
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
- }
-    
+}
 /* Label */
-label {
+#registration label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
 }
-    
 /* Input */
-input, select {
+#registration input,
+select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
   max-width: 400px;
 }
-    
 /* Buttons */
-button {
+#registration button {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -156,12 +207,10 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-    
- button:hover {
+#registration button:hover {
   background-color: #0056b3;
 }
-    
-button:disabled {
+#registration button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}    
+}
