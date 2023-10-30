@@ -143,3 +143,27 @@ function disableInputs() {
 	document.getElementById('acceptBtn').disabled = true;
 	return;
 }
+function endRegistration() {
+  const percentageScore = findPercentageScore();
+  // Clear form inputs and enable them
+  firstNameInput.value = '';
+  lastNameInput.value = '';
+  birthDateInput.value = '';
+  ageInput.value = '';
+  genderSelect.value = '';
+  emailInput.value = '';
+  firstNameInput.removeAttribute('disabled');
+  lastNameInput.removeAttribute('disabled');
+  birthDateInput.removeAttribute('disabled');
+  ageInput.removeAttribute('disabled');
+  genderSelect.removeAttribute('disabled');
+  emailInput.removeAttribute('disabled');
+  // Disable buttons and hide the results area
+  registerButton.disabled = false; // Enable the "Register" button
+  startButton.disabled = true;
+  endButton.disabled = true;
+  // Hide the results area
+  const resultsArea = document.getElementById('resultsArea');
+  resultsArea.hidden = true;
+  alert(`Your percentage score is ${percentageScore.toFixed(2)}%`);
+}
