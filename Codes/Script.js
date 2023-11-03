@@ -167,3 +167,50 @@ function endRegistration() {
   resultsArea.hidden = true;
   alert(`Your percentage score is ${percentageScore.toFixed(2)}%`);
 }
+
+function findPercentageScore() {
+	// Calculate the total number of questions, excluding the player registration data
+	const totalQuestions = PlayerRegistrationData.length - 1;
+  
+	// Calculate the number of correct answers
+	const correctAnswers = PlayerRegistrationData.filter((data) => data.isCorrect).length;
+  
+	// Calculate the percentage score
+	const percentageScore = (correctAnswers / totalQuestions) * 100;
+  
+	// Get the player's name from the registration data
+	const playerName = PlayerRegistrationData[0].firstName; // Assuming player name is stored in the first registration data
+  
+	// Get the current date
+	const currentDate = new Date().toLocaleDateString();
+  
+	// Select the 'showpercentage' statistic display area by its ID
+	const showPercentageArea = document.getElementById('showpercentage');
+  
+	// Clear the 'showpercentage' area
+	showPercentageArea.innerHTML = '';
+  
+	// Create and append elements to display the statistics
+	const totalQuestionsElement = document.createElement('p');
+	totalQuestionsElement.textContent = `Total Questions: ${totalQuestions}`;
+  
+	const correctAnswersElement = document.createElement('p');
+	correctAnswersElement.textContent = `Correct Answers: ${correctAnswers}`;
+  
+	const percentageScoreElement = document.createElement('p');
+	percentageScoreElement.textContent = `Percentage Score: ${percentageScore.toFixed(2)}%`;
+  
+	const playerNameElement = document.createElement('p');
+	playerNameElement.textContent = `Player's Name: ${playerName}`;
+  
+	const currentDateElement = document.createElement('p');
+	currentDateElement.textContent = `Current Date: ${currentDate}`;
+  
+	// Append elements to the 'showpercentage' area
+	showPercentageArea.appendChild(totalQuestionsElement);
+	showPercentageArea.appendChild(correctAnswersElement);
+	showPercentageArea.appendChild(percentageScoreElement);
+	showPercentageArea.appendChild(playerNameElement);
+	showPercentageArea.appendChild(currentDateElement);
+  }
+  
