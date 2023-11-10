@@ -166,4 +166,16 @@ function endRegistration() {
   const resultsArea = document.getElementById('resultsArea');
   resultsArea.hidden = true;
   alert(`Your percentage score is ${percentageScore.toFixed(2)}%`);
+
+
+	
 }
+
+
+document.getElementById('showpercentage').innerHTML += `
+Player's Name: ${firstNameElement.value} ${lastNameElement.value} <br>
+Current Date: ${currentDate} <br>
+Total Number of Questions: ${totalQuestions} <br>
+Number of Correct Answers: ${correctAnswers} <br>
+Percentage Score: ${percentageScore}%
+`; 
