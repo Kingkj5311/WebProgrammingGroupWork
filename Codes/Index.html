@@ -22,8 +22,9 @@
             <div id="registration">
                 <form id="registrationForm">
                     <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="first_name" required minlength="3" uniqueid="firstName">
-                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="firstName" name="first_name" required minlength="3" uniqueid="firstName"
+                        autocomplete="given-name">
+                    <label for="lastName">Last Name:</label>
                     <input type="text" id="lastName" name="last_name" required minlength="3" uniqueid="lastName">
                     <label for="dob">Date of Birth:</label>
                     <input type="date" id="dob" name="birthDate" required uniqueid="dateOfBirth">
@@ -38,13 +39,18 @@
                     <br>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@gmail\.com$"
-                        title="Please enter a valid Gmail address"><br>
+                        title="Please enter a valid Gmail address" autocomplete="email"><br>
                     <br>
                     <button type="button" id="registerBtn" onclick="register()">Register</button>
                     <button type="button" id="startBtn" onclick="playGame()" disabled>Start</button>
                     <button type="button" id="checkAnswerBtn" onclick="checkAnswer()" disabled>Check Answer</button>
                     <button type="button" id="nextBtn" onclick="playGame()" disabled>Next</button>
-                    <button type="button" id="endBtn" onclick="endRegistration()" disabled>End</button>
+                    <br>
+                    <br>
+                    <button type="button" id="percentageScoreBtn" onclick="findPercentageScore()"
+                        disabled>PercentageScore</button>
+                    <button type="button" id="endBtn" onclick="endGame()" disabled>End</button>
+                    <!-- <button type="button" id="endBtn" onclick="findPercentageScore()" disabled>End</button> -->
                 </form>
             </div>
         </div>
@@ -58,24 +64,20 @@
                 <input type="number" id="answer" placeholder="Enter your answer" required>
             </div>
         </div>
-        <div id="resultsArea">
+        <div id="resultsArea" >
             <div class="secHeader">
-                <h1><img src="../Assets/podium.svg" class="svgImg" alt="">Leaderboard</h1>
+                <h1><img src="../Assets/bar-chart.svg" class="svgImg" alt="">Statistics</h1>
             </div>
-            <div id="results">
-                <div id="showpercentage">
-
-                </div>
+            <div id="showpercentage" style="visibility: hidden;">
+                <textarea id="showPercentageArea" readonly></textarea>
             </div>
         </div>
         <div id="statisticsArea">
             <div class="secHeader">
-                <h1><img src="../Assets/bar-chart.svg" class="svgImg" alt="">Statistics</h1>
+                <h1><img src="../Assets/podium.svg" class="svgImg" alt="">Leaderboard</h1>
             </div>
-            <div id="results">
-                <div id="showallplayers">
-
-                </div>
+            <div id="showallplayers">
+                <textarea id="showStatisticsArea" readonly></textarea>
             </div>
         </div>
     </section>
