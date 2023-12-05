@@ -27,7 +27,6 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 }
 .navLinks {
   padding: 20px;
@@ -64,12 +63,12 @@ body {
   flex-direction: column;
   width: 100%;
   border-bottom: 1px solid var(--highlight);
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 .secHeader h1 {
   font-size: 25px;
   font-weight: bold;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   color: var(--highlight);
 }
 .svgImg {
@@ -81,9 +80,8 @@ body {
   filter: var(--highlightFiltered);
 }
 /* =========================== Sections ================================ */
-/* ------- Registration ------- */
-#registrationArea {
-  /* border: 1px solid var(--highlight); */
+#registration {
+  border: 1px solid var(--highlight);
   color: var(--normal);
   display: flex;
   justify-content: center;
@@ -92,15 +90,13 @@ body {
   width: 100%;
   height: 100%;
 }
-#registration {
-  border-bottom: 1px solid var(--highlight);
-  color: var(--normal);
+#registrationArea {
+  border: 1px solid var(--highlight);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: inherit;
 }
 /* ------- Play ------- */
 #playArea {
@@ -135,36 +131,26 @@ body {
 }
 /* ------- Leaderboard ------- */
 #results {
-  /* border: 1px solid var(--highlight); */
+  border: 1px solid var(--highlight);
   color: var(--normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100%;
-  height: inherit;
+  height: 100%;
 }
 #resultsArea {
   border: 1px solid var(--highlight);
-  flex-direction: column;
-  width: 100%;
-}
-#showpercentage {
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: center;
   flex-direction: column;
   width: 100%;
-  /* padding-left: 10px; */
-}
-#showPercentageArea {
-  width: inherit;
-  height: 81vh;
-  border: 0px;
-  resize: none;
-  background-color: transparent;
-  pointer-events: none;
 }
 /* -------- Statistics --------- */
 #statistics {
-  border: px solid var(--highlight);
+  border: 1px solid var(--highlight);
   color: var(--normal);
   display: flex;
   justify-content: center;
@@ -176,19 +162,24 @@ body {
 #statisticsArea {
   border: 1px solid var(--highlight);
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   height: 90vh;
   grid-row: 2;
   grid-column-start: 1;
   grid-column-end: 4;
-}
-#showAllPlayers {
-  height: inherit;
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 100%;
+  height: 90vh;
+  /* flex-direction: column; */
+  /* grid-row: 2; */
 }
 #showStatisticsArea {
+  border: none;
   width: 97vw;
   height: 80vh;
   border: 0px;
@@ -203,7 +194,6 @@ body {
 /* Form */
 #registration form {
   max-width: 100%;
-  min-width: 500px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -239,4 +229,44 @@ select {
 #registration button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+/* ========================= Pie Chart ================================== */
+#showallplayers {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  height: 80vh;
+  width: 95vw;
+}
+#stats {
+  grid-column-start: 1;
+  /* height:auto; */
+}
+#charts {
+  grid-column-start: 2;
+  width: 49vw;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  border-left: 1px solid var(--highlight);
+}
+.pieChart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* -------- Gender --------- */
+/* #genderChart {
+} */
+/* #genderKey {
+} */
+/* -------- Frequency --------- */
+/* #frequencyChart {
+} */
+/* #frequencyKey {
+} */
+.chartKey {
+  font-weight: 300;
+  font-size: 25px;
 }
